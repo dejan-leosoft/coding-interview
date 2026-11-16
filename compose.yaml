@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: codding-interview
+    image: coding-interview:php8.5
+    build: .
+    # Run as the host user so files created in the container are not owned by root.
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      COMPOSER_HOME: /tmp/composer
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: php -S 0.0.0.0:8000 -t public

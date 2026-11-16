@@ -1,0 +1,8 @@
+# Providers enabled for each payment operation.
+# Key: provider name in the URL. Value: a class implementing Payment.
+parameters:
+    payment.providers:
+        deposit:
+            demo: App\Domain\Payment\Provider\DemoPayment
+        withdraw:
+            demo: App\Domain\Payment\Provider\DemoPayment
